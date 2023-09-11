@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#AFC9E3"
+    android:gravity="center"
+
     android:layout_weight="1"
     tools:context=".welcome">
 
 
-
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="269dp"
+        android:layout_height="505dp"
 
         android:src="@drawable/make">
 

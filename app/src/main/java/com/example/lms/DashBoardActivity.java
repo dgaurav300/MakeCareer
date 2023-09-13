@@ -1,12 +1,7 @@
 package com.example.lms;
 
-<<<<<<< HEAD
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
-public class DashBoardActivity extends AppCompatActivity {
-=======
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,27 +13,27 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+
 
 public class DashBoardActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Toolbar toolbar;
     private FrameLayout fragmentContainer;
->>>>>>> 0a92542 (LMS System Project)
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
-<<<<<<< HEAD
-=======
+
 
         // Initialize Views
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         fragmentContainer = findViewById(R.id.fragment_container);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        NavigationView navigationView = findViewById(R.id.bottom_navigation);
         // Set up the Toolbar
         setSupportActionBar(toolbar);
 
@@ -49,11 +44,9 @@ public class DashBoardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Handle Bottom Navigation View item clicks
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                int menu_id=item.getItemId();
-
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 return false;
             }
         });
@@ -74,6 +67,6 @@ public class DashBoardActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
->>>>>>> 0a92542 (LMS System Project)
+
     }
 }

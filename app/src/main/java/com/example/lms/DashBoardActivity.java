@@ -31,17 +31,25 @@ public class DashBoardActivity extends AppCompatActivity {
 
         // Initialize Views
         drawerLayout = findViewById(R.id.drawer_layout);
+
         toolbar = findViewById(R.id.toolbar);
+
         fragmentContainer = findViewById(R.id.fragment_container);
-        NavigationView navigationView = findViewById(R.id.bottom_navigation);
+
+        NavigationView navigationView = findViewById(R.id.navigationView);
+
         // Set up the Toolbar
         setSupportActionBar(toolbar);
+        replaceFragment(new HomeFragment());
+
 
         // Set up the ActionBarDrawerToggle for the Drawer
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+          /*
 
         // Handle Bottom Navigation View item clicks
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -50,6 +58,8 @@ public class DashBoardActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+ */
     }
 
     @Override

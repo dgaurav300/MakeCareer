@@ -3,10 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary">
+    android:layout_height="wrap_content"
+    >
 
-    <!-- Customize your toolbar layout here -->
-    <!-- You can add a title, icons, or other views as needed -->
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="MakeCareer Learning"
+     android:textStyle="bold"
+       android:textSize="26dp"/>
 
 </androidx.appcompat.widget.Toolbar>

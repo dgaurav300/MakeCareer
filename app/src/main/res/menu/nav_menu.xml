@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_home"
+            android:title="Home"
+            android:icon="@drawable/home" />
+
+        <item
+            android:id="@+id/navigation_notification"
+            android:title="Notification"
+            android:icon="@drawable/home" />
+
+        <item
+            android:id="@+id/navigation_assignments"
+            android:title="Assignments"
+            android:icon="@drawable/home" />
+        <item
+            android:id="@+id/navigation_daily_time_table"
+            android:title="Daily TIme Table"
+            android:icon="@drawable/home" />
+        <item
+            android:id="@+id/navigation_holiday_list"
+            android:title="Holiday List"
+            android:icon="@drawable/home"/>
+
+        <item
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Fee Status"
+            android:icon="@drawable/home"/>
+        <item
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:title="Certificate"
+            android:icon="@drawable/home"/>
+
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_communication"
+            android:title="Communication">
+
+            <menu>
+                <group>
+                    <item android:id="@+id/nav_share"
+                        android:title="Share"/>
+                    <item android:id="@+id/nav_donate"
+                        android:title="Donate"/>
+                </group>
+            </menu>
+        </item>
+
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+
+            android:title="Authenticate">
+
+            <menu>
+                <group>
+
+                    <item android:id="@+id/nav_logout"
+                        android:title="Logout"/>
+                </group>
+            </menu>
+        </item>
+
+
+    </group>
+
+
+    <!-- Add more menu items as needed -->
+</menu>

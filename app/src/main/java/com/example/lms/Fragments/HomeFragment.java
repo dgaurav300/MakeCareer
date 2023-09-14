@@ -42,6 +42,9 @@ public class HomeFragment extends Fragment {
         viewPager2.setAdapter(viewPagerAdapter);
 
         bottomNavigationView=view.findViewById(R.id.bottomNav);
+
+
+
         frameLayout=view.findViewById(R.id.home_fragment_frame_layout);
 
 
@@ -85,6 +88,7 @@ bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelec
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         viewPager2.setVisibility(View.GONE);
         frameLayout.setVisibility(View.VISIBLE);
+        item.setChecked(true);
        switch (item.getItemId()){
            case R.id.learningNavItem:
                requireFragmentManager()
@@ -107,7 +111,7 @@ bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelec
 
        }
 
-        return true;
+        return false;
     }
 });
 

@@ -4,6 +4,7 @@
     android:id="@+id/learningNavItem"
     android:color="#FFFFFF"
     android:tint="#FFFFFF"
+    android:checked="false"
     android:backgroundTint="#FFFFFF"
     android:icon="@drawable/home"/>
 
@@ -12,6 +13,7 @@
         android:id="@+id/assignmentNavItem"
         android:color="#FFFFFF"
         android:tint="#FFFFFF"
+        android:checked="false"
         android:backgroundTint="#FFFFFF"
         android:icon="@drawable/home"/>
 
@@ -19,6 +21,7 @@
         android:id="@+id/profileNavItem"
         android:color="#FFFFFF"
         android:tint="#FFFFFF"
+        android:checked="false"
         android:backgroundTint="#FFFFFF"
         android:icon="@drawable/home"/>
 </menu>

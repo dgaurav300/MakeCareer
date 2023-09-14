@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:title="Learning"
+    android:id="@+id/learningNavItem"
     android:color="#FFFFFF"
     android:tint="#FFFFFF"
     android:backgroundTint="#FFFFFF"
@@ -8,12 +9,14 @@
 
 
     <item android:title="Assignments"
+        android:id="@+id/assignmentNavItem"
         android:color="#FFFFFF"
         android:tint="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:icon="@drawable/home"/>
 
     <item android:title="Profile"
+        android:id="@+id/profileNavItem"
         android:color="#FFFFFF"
         android:tint="#FFFFFF"
         android:backgroundTint="#FFFFFF"

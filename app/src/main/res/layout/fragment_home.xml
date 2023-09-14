@@ -30,7 +30,7 @@
 
 
     <androidx.viewpager2.widget.ViewPager2
-
+android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
@@ -47,7 +47,9 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         app:menu="@menu/bottom_nav_menu"
-        android:theme="@style/CardView.Light"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@color/selector_bottom_nav_icon_color"
+        app:itemTextColor="@color/selector_bottom_nav_text_color"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

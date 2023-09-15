@@ -12,13 +12,13 @@ import android.widget.Button;
 
 
 public class signup extends AppCompatActivity {
-Button button;
+Button btnLogin,btnSignUp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        button = findViewById(R.id.signin1);
-        button.setOnClickListener(new View.OnClickListener() {
+        btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(signup.this,MainActivity.class);

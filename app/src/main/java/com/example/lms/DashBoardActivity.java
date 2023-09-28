@@ -1,6 +1,7 @@
 package com.example.lms;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -49,7 +50,7 @@ public class DashBoardActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-          /*
+
 
         // Handle Bottom Navigation View item clicks
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -59,7 +60,7 @@ public class DashBoardActivity extends AppCompatActivity {
             }
         });
 
- */
+
     }
 
     @Override

@@ -26,6 +26,7 @@
         android:gravity="center"
         android:textAlignment="center"/>
     <EditText
+        android:id="@+id/editTextFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your Full Name"
@@ -38,6 +39,7 @@
         android:layout_margin="20dp"
         />
     <EditText
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your email address"
@@ -50,6 +52,7 @@
         android:layout_margin="20dp"
         />
     <EditText
+        android:id="@+id/editTextContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your contact number"
@@ -62,12 +65,13 @@
         android:layout_margin="20dp"
         />
     <EditText
+        android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your password"
         android:background="@drawable/editbackground"
         android:textStyle="bold"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textColorHint="#EDD6DE"
         android:padding="8dp"
         android:textColor="@color/black"
@@ -109,4 +113,11 @@
         android:textSize="15dp"
         android:textStyle="bold"
         android:textAllCaps="false"/>
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 </LinearLayout>

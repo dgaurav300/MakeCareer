@@ -115,34 +115,68 @@
             //if it passes all the validations
             progressBar.setVisibility(View.VISIBLE);
 
-            Retrofit retrofit= new Retrofit.Builder()
-                    .baseUrl(URLS.ROOT_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-           RetrofitAPI retrofitAPI= retrofit.create(RetrofitAPI.class);
 
-           Call<RegisterResponse> call=retrofitAPI.register(full_name,email,contact_number,password);
+// Execute the AsyncTask to handle registration
+            new RegisterUserAsyncTask().execute(full_name, email, contact_number, password);
 
-           call.enqueue(new Callback<RegisterResponse>() {
-               @Override
-               public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-
-                   RegisterResponse registerResponse=response.body();
-                   boolean isError=registerResponse.isError();
-                   String res_message=registerResponse.getMessage();
-
-                   Toast.makeText(signup.this, "Error:"+isError+"\nMessage: "+res_message, Toast.LENGTH_SHORT).show();
-
-               }
-
-               @Override
-               public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                   Toast.makeText(signup.this, "Error Message:"+t.getMessage(), Toast.LENGTH_SHORT).show();
-
-               }
-           });
 
            }
+        private class RegisterUserAsyncTask extends AsyncTask<String,Void,Boolean>{
+
+            @Override
+            protected Boolean doInBackground(String... params) {
+                String full_name = params[0];
+                String email = params[1];
+                String contact_number = params[2];
+                String password = params[3];
 
 
+                // Initialize Retrofit
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(URLS.ROOT_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                 // Create the RetrofitAPI instance
+                RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+
+                // Make the API call
+                Call<RegisterResponse> call = retrofitAPI.register(full_name, email, contact_number, password);
+                try {
+                    Response<RegisterResponse> response = call.execute();
+
+                    if (response.isSuccessful()) {
+                        // Registration was successful
+                        return true;
+                    } else {
+                        // Registration failed
+                        return false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    // Network error occurred
+                    return false;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Boolean registrationSuccessful) {
+                // Hide the ProgressBar after the AsyncTask is complete
+                progressBar.setVisibility(View.INVISIBLE);
+
+                // Handle the registration result
+                if (registrationSuccessful) {
+                    // Registration was successful
+                    Toast.makeText(signup.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Registration failed
+                    Toast.makeText(signup.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+
+            }
     }
+
+
+

@@ -45,7 +45,11 @@ public class HomeFragment extends Fragment {
 
 
 
+
         frameLayout=view.findViewById(R.id.home_fragment_frame_layout);
+        viewPager2.setVisibility(View.GONE);
+        frameLayout.setVisibility(View.VISIBLE);
+
 
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -74,7 +78,6 @@ public class HomeFragment extends Fragment {
                 switch (position){
                     case 0:
                     case 1:
-                    case 2:
                         tabLayout.getTabAt(position).select();
 
 
@@ -91,19 +94,19 @@ bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelec
         item.setChecked(true);
        switch (item.getItemId()){
            case R.id.learningNavItem:
-               requireFragmentManager()
+               getParentFragmentManager()
                        .beginTransaction()
                        .replace(R.id.home_fragment_frame_layout,new LearningFragment())
                        .commit();
                return true;
            case R.id.assignmentNavItem:
-               requireFragmentManager()
+               getParentFragmentManager()
                        .beginTransaction()
                        .replace(R.id.home_fragment_frame_layout,new AssignmentsFragment())
                        .commit();
                return true;
            case R.id.profileNavItem:
-               requireFragmentManager()
+               getParentFragmentManager()
                        .beginTransaction()
                        .replace(R.id.home_fragment_frame_layout,new ProfileFragment())
                        .commit();

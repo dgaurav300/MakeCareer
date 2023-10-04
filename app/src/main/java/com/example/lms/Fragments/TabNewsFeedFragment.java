@@ -12,10 +12,10 @@ import com.example.lms.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TabTwoFragment#newInstance} factory method to
+ * Use the {@link TabNewsFeedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TabTwoFragment extends Fragment {
+public class TabNewsFeedFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class TabTwoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TabTwoFragment() {
+    public TabNewsFeedFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class TabTwoFragment extends Fragment {
      * @return A new instance of fragment TabTwoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TabTwoFragment newInstance(String param1, String param2) {
-        TabTwoFragment fragment = new TabTwoFragment();
+    public static TabNewsFeedFragment newInstance(String param1, String param2) {
+        TabNewsFeedFragment fragment = new TabNewsFeedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

@@ -14,19 +14,28 @@
     import android.widget.ProgressBar;
     import android.widget.Toast;
 
+    import com.example.lms.API_URLS.RetrofitAPI;
     import com.example.lms.API_URLS.URLS;
     import com.example.lms.Models.User;
     import com.example.lms.Request.RequestHandler;
     import com.example.lms.SharedPreference.SharedPrefManager;
+    import com.example.lms.respones.RegisterResponse;
 
     import org.json.JSONException;
     import org.json.JSONObject;
 
     import java.util.HashMap;
 
+    import retrofit2.Call;
+    import retrofit2.Callback;
+    import retrofit2.Response;
+    import retrofit2.Retrofit;
+    import retrofit2.converter.gson.GsonConverterFactory;
+
 
     public class signup extends AppCompatActivity {
     Button btnLogin,btnSignUp;
+    ProgressBar progressBar;
     EditText editTextFullName,editTextEmail,editTextContact,editTextPassword;
 
         protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,8 @@
             editTextEmail=findViewById(R.id.editTextEmail);
             editTextContact=findViewById(R.id.editTextContact);
             editTextPassword=findViewById(R.id.editTextPassword);
+
+            progressBar=findViewById(R.id.progressBar);
 
 
 
@@ -102,68 +113,36 @@
                 return;
             }
             //if it passes all the validations
-            class RegisterUser extends AsyncTask<Void, Void, String> {
-                private ProgressBar progressBar;
+            progressBar.setVisibility(View.VISIBLE);
 
-                @Override
-                protected String doInBackground(Void... voids) {
-                    //creating request handler object
-                    RequestHandler requestHandler = new RequestHandler();
-                    //creating request parameters
-                    HashMap<String, String> params = new HashMap<>();
-                    params.put("full_name", full_name);
-                    params.put("email", email);
-                    params.put("contact_number", contact_number);
-                    params.put("password", password);
+            Retrofit retrofit= new Retrofit.Builder()
+                    .baseUrl(URLS.ROOT_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+           RetrofitAPI retrofitAPI= retrofit.create(RetrofitAPI.class);
 
-                    //returing the response
-                    return requestHandler.sendPostRequest(URLS.URL_REGISTER, params);
-                }
+           Call<RegisterResponse> call=retrofitAPI.register(full_name,email,contact_number,password);
 
-                @Override
-                protected void onPreExecute() {
-                    super.onPreExecute();
-                    //displaying the progress bar while user registers on the server
-                    progressBar = (ProgressBar) findViewById(R.id.progressBar);
-                    progressBar.setVisibility(View.VISIBLE);
-                }
+           call.enqueue(new Callback<RegisterResponse>() {
+               @Override
+               public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
-                @Override
-                protected void onPostExecute(String s) {
-                    super.onPostExecute(s);
-                    //hiding the progressbar after completion
-                    progressBar.setVisibility(View.GONE);
-                    try {
-                        //converting response to json object
-                        JSONObject obj = new JSONObject(s);
-                        //if no error in response
-                        if (!obj.getBoolean("error")) {
-                            Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                            //getting the user from the response
-                            JSONObject userJson = obj.getJSONObject("user");
-                            //creating a new user object
-                            User user = new User(
-                                    userJson.getInt("id"),
-                                    userJson.getString("full_name"),
-                                    userJson.getString("email"),
-                                    userJson.getString("contact_number")
-                            );
-                            //storing the user in shared preferences
-                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);                        //starting the profile activity
-                            finish();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            //executing the async task
-            RegisterUser ru = new RegisterUser();
-            ru.execute();
+                   RegisterResponse registerResponse=response.body();
+                   boolean isError=registerResponse.isError();
+                   String res_message=registerResponse.getMessage();
+
+                   Toast.makeText(signup.this, "Error:"+isError+"\nMessage: "+res_message, Toast.LENGTH_SHORT).show();
+
+               }
+
+               @Override
+               public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                   Toast.makeText(signup.this, "Error Message:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+               }
+           });
+
+           }
 
 
-        }
     }

@@ -11,5 +11,19 @@
     <color name="unselected_icon_color">#808080</color> <!-- Gray -->
     <color name="selected_text_color">#0000FF</color> <!-- Blue -->
     <color name="unselected_text_color">#808080</color> <!-- Gray -->
+    <!-- color for bar chart -->
+    <color name="jan">#00f</color>
+    <color name="feb">#f00</color>
+    <color name="mar">#0f0</color>
+    <color name="apr">#0ff</color>
+    <color name="may">#ff0</color>
+    <color name="jun">#e90</color>
+    <color name="jul">#e09</color>
+    <color name="aug">#e89</color>
+    <color name="sep">#f50</color>
+    <color name="oct">#660</color>
+    <color name="nov">#e8f</color>
+    <color name="dec">#080</color>
+
 
 </resources>

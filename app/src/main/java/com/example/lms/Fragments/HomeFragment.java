@@ -47,8 +47,7 @@ public class HomeFragment extends Fragment {
 
 
         frameLayout=view.findViewById(R.id.home_fragment_frame_layout);
-        viewPager2.setVisibility(View.GONE);
-        frameLayout.setVisibility(View.VISIBLE);
+
 
 
 
@@ -85,6 +84,8 @@ public class HomeFragment extends Fragment {
                 super.onPageSelected(position);
             }
         });
+
+
 
 bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
     @Override

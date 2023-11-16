@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.lms.Fragments.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -29,6 +30,8 @@ public class DashBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
+
+        
 
         // Initialize Views
         drawerLayout = findViewById(R.id.drawer_layout);

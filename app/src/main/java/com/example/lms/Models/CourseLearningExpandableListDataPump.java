@@ -46,10 +46,10 @@ public class CourseLearningExpandableListDataPump {
         CourseTopicSubTopics subTopic13=new CourseTopicSubTopics(13,"Exception Handling",3,"");
         CourseTopicSubTopics subTopic14=new CourseTopicSubTopics(14,"File Handling",3,"");
 
-        oop.add(subTopic11);
-        oop.add(subTopic12);
-        oop.add(subTopic13);
-        oop.add(subTopic14);
+        advanced.add(subTopic11);
+        advanced.add(subTopic12);
+        advanced.add(subTopic13);
+        advanced.add(subTopic14);
 
 
 
